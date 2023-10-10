@@ -35,11 +35,16 @@ The application then will analyse results against the user preferences provided 
 # Project Structure
 HotelCompareWebAPI
 ├── Controllers             
-├── Data                    # Dummy sample of hotel reviews, containing files representing one hotel per file with multiple reviews per hotel
-├── Extensions              # Objects used during the application startup, containing processes to load configuration, initiate semantic kernel, and register skills
+├── Data            # Dummy sample of hotel reviews
+├── Extensions      # Objects used during the application startup, containing processes to load configuration, initiate semantic kernel, and register skills
 ├── Model                   
 ├── Services                
-├── Skills                  # This folder is where the skills are stored, containing folders with a set of skill prompt and config
+├── Skills          # This folder is where the skills are stored, containing folders with a set of skill prompt and config
 ├── Utilities        
 ├── Program.cs
 └── appsettings.json
+
+# How to Run
+1. Enter the details of your Azure OpenAI (Key, Endpoint, and Deployment) as well as the configurations for Text Embedding and Azure Cognitive Service in appsettings.json.
+2. Run the Web API
+3. Execute the API by sending a REST GET request, i.e. 	`code` http://localhost:7133/compare?hotelName=<hotel names separated by comma>&userPreferences=<user preferences as text> 	`code`
