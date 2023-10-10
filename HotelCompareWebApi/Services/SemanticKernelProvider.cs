@@ -1,7 +1,7 @@
 ﻿using HotelCompareWebApi.Models;
 using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.Connectors.Memory.AzureCognitiveSearch;
-using AzureCognitiveSearchConfig = HotelCompareWebApi.Models.AzureCognitiveSearchConfig;
+using AzureAIConfigBase = HotelCompareWebApi.Models.AzureAIConfigBase;
 
 namespace HotelCompareWebApi.Services;
 
@@ -28,7 +28,7 @@ public sealed class SemanticKernelProvider
     {
         var azureOpenAITextConfig = this._configuration.GetSection("Services").GetSection("AzureOpenAIText").Get<AzureOpenAITextConfig>();
         var azureOpenAIEmbeddingConfig = this._configuration.GetSection("Services").GetSection("AzureOpenAIEmbedding").Get<AzureOpenAIEmbeddingConfig>();
-        var azureCognitiveSearchConfig = this._configuration.GetSection("Services").GetSection("AzureCognitiveSearch").Get<AzureCognitiveSearchConfig>();
+        var azureCognitiveSearchConfig = this._configuration.GetSection("Services").GetSection("AzureCognitiveSearch").Get<AzureAIConfigBase>();
 
         return kernelBuilder
             .WithAzureChatCompletionService(azureOpenAITextConfig!.Deployment, azureOpenAITextConfig!.Endpoint, azureOpenAITextConfig!.APIKey)

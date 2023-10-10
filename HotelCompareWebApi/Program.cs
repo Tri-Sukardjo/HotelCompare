@@ -1,4 +1,6 @@
+using Azure.AI.TextAnalytics;
 using HotelCompareWebApi.Extensions;
+using HotelCompareWebApi.Services;
 using System.Text.Json.Serialization;
 
 public sealed class Program
@@ -25,6 +27,11 @@ public sealed class Program
         // Configure and add semantic services
         builder
             .AddSemanticKernelServices();
+
+        // configure Azure AI services client
+        builder
+            .AddTextAnalyticsClientService()
+            .AddTextTranslationClientService();
 
         builder.Services.AddControllers();
         builder.Services.AddControllers().AddJsonOptions(x =>
