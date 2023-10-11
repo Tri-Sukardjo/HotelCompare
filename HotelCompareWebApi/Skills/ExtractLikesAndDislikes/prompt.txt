@@ -22,4 +22,3 @@ Use JSON format to present the topics and how frequent they are mentioned among 
 ###
 {{$input}}
 ###
-"""

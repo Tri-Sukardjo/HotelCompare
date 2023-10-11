@@ -6,4 +6,3 @@ You will be given a content within ### containing user preferences in one or mor
 ###
 {{$input}}
 ###
-"""

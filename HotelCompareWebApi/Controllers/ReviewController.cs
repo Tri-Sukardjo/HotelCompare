@@ -40,7 +40,7 @@ namespace HotelCompareWebApi.Controllers
                 recallList.Add(string.Format(@"About {0}: {{{{recall 'give me full information on {1}.'}}}}", hotelName, hotelName));
             }
 
-            // conclude -- this last SK Function is still work in progress, I am still engineering the prompt to do comparison on the 3 hotels correctly
+            // conclude and recommend
             string hotelKnowledge = String.Join(Environment.NewLine, recallList.ToArray()); 
             SKContext conclusion = await GetConclusionAsync(hotelKnowledge, extractedUserPreferences.Result);
 
@@ -112,7 +112,7 @@ namespace HotelCompareWebApi.Controllers
         private async Task<SKContext> ExtractUserPreferences(string input)
         {
             var contextVariables = new ContextVariables();
-            contextVariables.Set("rawInput", input);
+            contextVariables.Set("input", input);
 
             ISKFunction function = _kernel.Skills.GetFunction("ExtractUserPreference", "Invoke");
             return await _kernel.RunAsync(function!, contextVariables);
@@ -121,7 +121,7 @@ namespace HotelCompareWebApi.Controllers
         private async Task<SKContext> GetSentimentFromReviewsAsync(string input)
         {
             var contextVariables = new ContextVariables();
-            contextVariables.Set("rawInput", input);
+            contextVariables.Set("input", input);
 
             ISKFunction function = _kernel.Skills.GetFunction("InferSentiment", "Invoke");
             return await _kernel.RunAsync(function!, contextVariables);
@@ -130,7 +130,7 @@ namespace HotelCompareWebApi.Controllers
         private async Task<SKContext> GetLikesAndDislikesFromReviewsAsync(string input)
         {
             var contextVariables = new ContextVariables();
-            contextVariables.Set("rawInput", input);
+            contextVariables.Set("input", input);
 
             ISKFunction function = _kernel.Skills.GetFunction("ExtractLikesAndDislikes", "Invoke");
             return await _kernel.RunAsync(function!, contextVariables);
@@ -139,7 +139,7 @@ namespace HotelCompareWebApi.Controllers
         private async Task<SKContext> GetSummaryFromReviewsAsync(string input)
         {
             var contextVariables = new ContextVariables();
-            contextVariables.Set("rawInput", input);
+            contextVariables.Set("input", input);
 
             ISKFunction function = _kernel.Skills.GetFunction("GetSummary", "Invoke");
             return await _kernel.RunAsync(function!, contextVariables);
@@ -151,7 +151,7 @@ namespace HotelCompareWebApi.Controllers
             contextVariables.Set("hotelSummaries", hotelSummaries);
             contextVariables.Set("userPreferences", userPreferences);
            
-            ISKFunction function = _kernel.Skills.GetFunction("ConcludeReview", "Invoke");
+            ISKFunction function = _kernel.Skills.GetFunction("ConcludeReview", "InvokeWithContext");
             return await _kernel.RunAsync(function!, contextVariables);
         }
     }

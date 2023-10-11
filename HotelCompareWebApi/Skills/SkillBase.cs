@@ -10,8 +10,8 @@ namespace HotelCompareWebApi.Skills;
 
 public class SkillBase
 {
-    private readonly IKernel _kernel;
-    private ISKFunction? _skillFunction;
+    protected readonly IKernel _kernel;
+    protected ISKFunction? _skillFunction;
     public SkillBase(IKernel kernel)
     {
         _kernel = kernel;
