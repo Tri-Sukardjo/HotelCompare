@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "type": "completion",
+  "description": "Conclude the hotel comparison by comparing multiple hotel review summaries against user preferences",
+  "completion": {
+    "max_tokens": 2000,
+    "temperature": 0.2,
+    "top_p": 0.0,
+    "presence_penalty": 0.0,
+    "frequency_penalty": 0.0
+  },
+  "input": {
+    "parameters": [
+      {
+        "name": "hotelSummaries",
+        "description": "This input contains a list of summary for each of the hotel reviews",
+        "defaultValue": ""
+      },
+      {
+        "name": "userPreferences",
+        "description": "This input contains a list of user preferences when it comes to preferred hotel to choose",
+        "defaultValue": ""
+      }
+    ]
+  }
+}

@@ -1,7 +1,7 @@
 ﻿using HotelCompareWebApi.Services;
-using HotelCompareWebApi.Skills;
 using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.Skills.Core;
+using System.Reflection;
 
 namespace HotelCompareWebApi.Extensions;
 
@@ -45,7 +45,6 @@ internal static class SemanticKernelExtensions
     private static Task RegisterHotelCompareSkillsAsync(IServiceProvider sp, IKernel kernel)
     {
         kernel.RegisterMainSkills(sp);
-        kernel.RegisterHelperSkills(sp);
         kernel.ImportSkill(new TextMemorySkill(kernel.Memory)) ;
 
         return Task.CompletedTask;
@@ -53,36 +52,9 @@ internal static class SemanticKernelExtensions
 
     public static IKernel RegisterMainSkills(this IKernel kernel, IServiceProvider sp)
     {
-        kernel.ImportSkill(
-            new InferSentimentSkill(kernel), 
-            "InferSentiment"
-            );
-
-        kernel.ImportSkill(
-            new ExtractLikesAndDislikesSkill(kernel),
-            "ExtractLikesAndDislikes"
-            );
-
-        kernel.ImportSkill(
-            new GetSummarySkill(kernel),
-            "GetSummary"
-            );
-
-        kernel.ImportSkill(
-            new ConcludeReviewSkill(kernel),
-            "ConcludeReview"
-            );
-
-        return kernel;
-    }
-
-    public static IKernel RegisterHelperSkills(this IKernel kernel, IServiceProvider sp)
-    {
-        kernel.ImportSkill(
-            new ExtractUserPreferenceSkill(kernel),
-            "ExtractUserPreference"
-            );     
-
+        string skillDirectory = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Skills");
+        kernel.ImportSemanticSkillFromDirectory(skillDirectory, "ReviewCompareSkills");
+        
         return kernel;
     }
 }

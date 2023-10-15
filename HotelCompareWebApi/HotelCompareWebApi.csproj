@@ -11,11 +11,11 @@
     <None Remove="Data\Hotel_2.txt" />
     <None Remove="Data\Hotel_3.txt" />
     <None Remove="Data\Hotel_4.txt" />
-    <None Remove="Skills\ConcludeReview\prompt.txt" />
-    <None Remove="Skills\ExtractLikesAndDislikes\prompt.txt" />
-    <None Remove="Skills\ExtractUserPreference\prompt.txt" />
-    <None Remove="Skills\GetSummary\prompt.txt" />
-    <None Remove="Skills\InferSentiment\prompt.txt" />
+    <None Remove="Skills\ReviewCompareSkills\ConcludeReview\skprompt.txt" />
+    <None Remove="Skills\ReviewCompareSkills\ExtractLikesAndDislikes\skprompt.txt" />
+    <None Remove="Skills\ReviewCompareSkills\ExtractUserPreference\skprompt.txt" />
+    <None Remove="Skills\ReviewCompareSkills\GetSummary\skprompt.txt" />
+    <None Remove="Skills\ReviewCompareSkills\InferSentiment\skprompt.txt" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,19 +31,19 @@
     <Content Include="Data\Hotel_3.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Skills\ConcludeReview\prompt.txt">
+    <Content Include="Skills\ReviewCompareSkills\ConcludeReview\skprompt.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Skills\ExtractLikesAndDislikes\prompt.txt">
+    <Content Include="Skills\ReviewCompareSkills\ExtractLikesAndDislikes\skprompt.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Skills\ExtractUserPreference\prompt.txt">
+    <Content Include="Skills\ReviewCompareSkills\ExtractUserPreference\skprompt.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Skills\GetSummary\prompt.txt">
+    <Content Include="Skills\ReviewCompareSkills\GetSummary\skprompt.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Skills\InferSentiment\prompt.txt">
+    <Content Include="Skills\ReviewCompareSkills\InferSentiment\skprompt.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

@@ -114,7 +114,7 @@ namespace HotelCompareWebApi.Controllers
             var contextVariables = new ContextVariables();
             contextVariables.Set("input", input);
 
-            ISKFunction function = _kernel.Skills.GetFunction("ExtractUserPreference", "Invoke");
+            ISKFunction function = _kernel.Skills.GetFunction("ReviewCompareSkills", "ExtractUserPreference");
             return await _kernel.RunAsync(function!, contextVariables);
         }
 
@@ -123,7 +123,7 @@ namespace HotelCompareWebApi.Controllers
             var contextVariables = new ContextVariables();
             contextVariables.Set("input", input);
 
-            ISKFunction function = _kernel.Skills.GetFunction("InferSentiment", "Invoke");
+            ISKFunction function = _kernel.Skills.GetFunction("ReviewCompareSkills", "InferSentiment");
             return await _kernel.RunAsync(function!, contextVariables);
         }
 
@@ -132,7 +132,7 @@ namespace HotelCompareWebApi.Controllers
             var contextVariables = new ContextVariables();
             contextVariables.Set("input", input);
 
-            ISKFunction function = _kernel.Skills.GetFunction("ExtractLikesAndDislikes", "Invoke");
+            ISKFunction function = _kernel.Skills.GetFunction("ReviewCompareSkills", "ExtractLikesAndDislikes");
             return await _kernel.RunAsync(function!, contextVariables);
         }
 
@@ -141,7 +141,7 @@ namespace HotelCompareWebApi.Controllers
             var contextVariables = new ContextVariables();
             contextVariables.Set("input", input);
 
-            ISKFunction function = _kernel.Skills.GetFunction("GetSummary", "Invoke");
+            ISKFunction function = _kernel.Skills.GetFunction("ReviewCompareSkills", "GetSummary");
             return await _kernel.RunAsync(function!, contextVariables);
         }
 
@@ -151,7 +151,7 @@ namespace HotelCompareWebApi.Controllers
             contextVariables.Set("hotelSummaries", hotelSummaries);
             contextVariables.Set("userPreferences", userPreferences);
            
-            ISKFunction function = _kernel.Skills.GetFunction("ConcludeReview", "InvokeWithContext");
+            ISKFunction function = _kernel.Skills.GetFunction("ReviewCompareSkills", "ConcludeReview");
             return await _kernel.RunAsync(function!, contextVariables);
         }
     }
