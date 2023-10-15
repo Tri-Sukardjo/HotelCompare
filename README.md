@@ -2,6 +2,9 @@
 This is an Azure OpenAI powered Hotel Review Comparison backend API, written as a practice project related to Professional Development on Generative AI development.
 The client application is stored in a different repository.
 
+Sample:
+![alt text](https://github.com/tdanur/HotelCompare/blob/master/images/hotelcompareexample.png?raw=true)
+
 # Goal
 To assist and expedite hotel comparison process by:
 - Analysing and providing insights from a list of reviews for each of the selected hotels, and
