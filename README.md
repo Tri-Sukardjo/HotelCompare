@@ -10,6 +10,7 @@ To assist and expedite hotel comparison process by:
 # Technologies 
 - .Net 7
 - Azure Language Service
+- Azure Translator Service
 - Azure OpenAI
 - Azure Cognitive Search
 - Semantic Kernel
