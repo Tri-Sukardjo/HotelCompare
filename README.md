@@ -1,26 +1,28 @@
 # HotelCompare
-An Azure OpenAI powered Hotel Review Comparison tool.
-
-This project is the backend API. The client application is stored in a different repository.
+This is an Azure OpenAI powered Hotel Review Comparison backend API, written as a practice project related to Professional Development on Generative AI development.
+The client application is stored in a different repository.
 
 # Goal
-To automate the hotel comparison process based on their reviews on booking.com (and/or the likes)
+To assist and expedite hotel comparison process by:
+- Analysing and providing insights from a list of reviews for each of the selected hotels, and
+- Providing recommendation on the preferred hotel based on user preferences against the review analysis results.
 
 # Technologies 
 - .Net 7
+- Azure Language Service
+- Azure OpenAI
 - Azure Cognitive Search
 - Semantic Kernel
-- Azure OpenAI
-
+  
 # Concepts Used
-- Some of the main GenAI capabilities to summarise texts, infer topics, analyse sentiments.
+- Some of the main Generative AI capabilities to summarise texts, infer topics, and analyse sentiments.
 - Prompt Engineering
 - Semantic Kernel
 - Semantic Memory
 
 # Input 
 Phase 1:
-- Up to 5 hotels to compare
+- Up to 3 hotels to compare
 - User preferences in a text format (i.e. I want a hotel with good location, close to city center, cheap, good value, good food, etc)
 
 # Output 
@@ -30,7 +32,7 @@ Phase 1: Each hotel reviews will be analysed and the app will come up with the f
 - what feature of the hotel that the guests dislike the most
 - summary of the whole reviews
 
-The application then will analyse results against the user preferences provided and pick the top 2 recommended hotels along with the reason why.
+The application then will analyse results against the user preferences provided and pick the top 1 recommended hotels along with the reason why.
 
 # Project Structure
 HotelCompareWebAPI  
